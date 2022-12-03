@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Confirm from "./Confirm";
 import ShowDataInTable from "./ShowDataInTable";
 import SignUpInterface from "./SignUpInterface";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 function Signup() {
-  const [active, setActive] = useState("firstComponent");
   const navigate = useNavigate();
 
   const data = {
@@ -21,18 +19,6 @@ function Signup() {
     confirmPassword: "",
     gender: "",
   };
-
-  function nextStep() {
-    const { step } = form;
-    setForm({ ...form, step: step + 1 });
-    console.log(form);
-  }
-
-  function prevStep() {
-    const { step } = form;
-    setForm({ ...form, step: step - 1 });
-    console.log(form);
-  }
 
   const [form, setForm] = useState(data);
   const [formSubmit, setFormSubmit] = useState(false);
@@ -80,7 +66,7 @@ function Signup() {
       } else {
         setFormSubmit(true);
       }
-      //
+
       if (value.password === value.confirmPassword) {
         // //
         ifYes("pwmatch");
@@ -167,43 +153,24 @@ function Signup() {
     e.preventDefault();
 
     if (formSubmit === true) {
-      navigate('/ShowDataInTable')
-      // setActive("secondComponent");
-      // console.log("formSubmit == true");
+      navigate("/ShowDataInTable");
     }
   }
 
   return (
     <>
-      {/* {active === "firstComponent" && (
-        <SignUpInterface onchange={onchange} handleSubmit={handleSubmit} />
-      )}
-      {active === "secondComponent" && <ShowDataInTable data={form} setActive={setActive}/>} */}
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <SignUpInterface
-                // nextStep={nextStep}
-                onchange={onchange}
-                // prevStep={prevStep}
-                handleSubmit={handleSubmit}
-                // values={render}
-              />
-            }
-          />
-          <Route
-            path="/ShowDataInTable"
-            element={
-              <ShowDataInTable
-                // nextStep={nextStep}
-                // prevStep={prevStep}
-                data={form}
-                // values={values}
-              />
-            }
-          />
-        </Routes>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <SignUpInterface onchange={onchange} handleSubmit={handleSubmit} />
+          }
+        />
+        <Route
+          path="/ShowDataInTable"
+          element={<ShowDataInTable data={form} />}
+        />
+      </Routes>
     </>
   );
 }

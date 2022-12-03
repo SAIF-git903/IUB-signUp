@@ -1,23 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 function ShowDataInTable(props) {
-  const {setActive} = props
-
-  const btn_style = {
-    backgroundColor: "#E5AE32",
-    borderColor: "#E5AE32",
-    height: "54px",
-    padding: "20px 130px",
-    border: "1px solid transparent",
-    textDecoration: "none",
-    fontSize: "1rem",
-    color: "black",
-    borderRadius: "5px",
-    color: "#212529",
-    fontSize: "20px",
-  };
-
   useEffect(() => {
     const { data } = props;
     for (const [key, value] of Object.entries(data)) {
@@ -44,7 +27,6 @@ function ShowDataInTable(props) {
             <tr id="tdth"></tr>
           </tbody>
         </table>
-        
       </div>
     </>
   );
