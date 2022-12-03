@@ -1,0 +1,9 @@
+.top-container{
+    display: grid;
+    grid-template-areas: 1fr 1fr;
+}
+.container{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
