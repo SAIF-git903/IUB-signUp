@@ -1,24 +1,9 @@
 import React from "react";
+import Alert from "./Alert";
 import iubImage from "./unsplash.jpeg";
-import { Link } from "react-router-dom";
 
 function SignUpInterface(props) {
-  const { nextStep, onchange, handleSubmit } = props;
-
-  const btn_style = {
-    backgroundColor: "#E5AE32",
-    borderColor: "#E5AE32",
-    height: "54px",
-    padding: "20px 130px",
-    border: "1px solid transparent",
-    textDecoration: "none",
-    fontSize: "1rem",
-    color: "black",
-    marginRight: "20px",
-    borderRadius: "5px",
-    color: "#212529",
-    fontSize: "30px",
-  };
+  const { onchange, handleSubmit } = props;
 
   return (
     <>
@@ -189,15 +174,6 @@ function SignUpInterface(props) {
                 >
                   Register Now
                 </button>
-
-                {/* <Link
-                  style={btn_style}
-                  to="/ShowDataInTable"
-                  role="button"
-                  // onClick={handleSubmit}
-                >
-                  Register
-                </Link> */}
               </div>
             </form>
           </div>

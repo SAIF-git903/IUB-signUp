@@ -7,7 +7,6 @@ function Signup() {
   const navigate = useNavigate();
 
   const data = {
-    step: 1,
     firstName: "",
     lastName: "",
     fatherName: "",
@@ -86,61 +85,26 @@ function Signup() {
         ifNot("8char");
       }
 
-      const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+      const num = new RegExp("[0-9]+");
+      if (num.test(value.password)) {
+        ifYes("num");
+      } else {
+        ifNot("num");
+      }
 
-      num.forEach((num) => {
-        if (value.password.includes(num)) {
-          ifYes("num");
-          console.log("Number Included");
-        }
-      });
+      const ucase = new RegExp("[A-Z]+");
+      if (ucase.test(value.password)) {
+        ifYes("ucase");
+      } else {
+        ifNot("ucase");
+      }
 
-      const alphabets = [
-        "a",
-        "b",
-        "c",
-        "d",
-        "e",
-        "f",
-        "g",
-        "h",
-        "i",
-        "j",
-        "k",
-        "l",
-        "m",
-        "n",
-        "o",
-        "p",
-        "q",
-        "r",
-        "s",
-        "t",
-        "u",
-        "v",
-        "w",
-        "x",
-        "y",
-        "z",
-      ];
-
-      alphabets.forEach((abc) => {
-        let lowerAlphabet = abc.toLowerCase();
-        if (value.password.includes(lowerAlphabet)) {
-          console.log("lowerCase included");
-          console.log(abc);
-          ifYes("lcase");
-        }
-      });
-
-      alphabets.forEach((abc) => {
-        let upperAlphabet = abc.toUpperCase();
-        if (value.password.includes(upperAlphabet)) {
-          console.log("uppercase included");
-          console.log(abc);
-          ifYes("ucase");
-        }
-      });
+      const lcase = new RegExp("[a-z]+");
+      if (lcase.test(value.password)) {
+        ifYes("lcase");
+      } else {
+        ifNot("ucase");
+      }
     }
   }, [form]);
 
@@ -151,10 +115,17 @@ function Signup() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (formSubmit === false) {
+      alert("Please fill out these fields");
+    }
 
     if (formSubmit === true) {
       navigate("/ShowDataInTable");
     }
+  }
+
+  function handlePrev() {
+    navigate("/");
   }
 
   return (
@@ -168,7 +139,7 @@ function Signup() {
         />
         <Route
           path="/ShowDataInTable"
-          element={<ShowDataInTable data={form} />}
+          element={<ShowDataInTable data={form} handlePrev={handlePrev} />}
         />
       </Routes>
     </>

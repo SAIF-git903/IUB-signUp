@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 function ShowDataInTable(props) {
+  const { data, handlePrev } = props;
   useEffect(() => {
-    const { data } = props;
     for (const [key, value] of Object.entries(data)) {
       const trth = document.getElementById("trth");
       const tdth = document.getElementById("tdth");
@@ -14,7 +14,7 @@ function ShowDataInTable(props) {
       tdth.append(td);
       console.log(key, value);
     }
-  }, []);
+  }, [data]);
 
   return (
     <>
@@ -27,6 +27,12 @@ function ShowDataInTable(props) {
             <tr id="tdth"></tr>
           </tbody>
         </table>
+        <button
+          id="submit"
+          type="submit"
+          className="btn btn-secondary btn-warning"
+          onClick={handlePrev}
+        >Previous</button>
       </div>
     </>
   );
