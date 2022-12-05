@@ -60,8 +60,8 @@ select {
   width: 400px;
   padding: 20px;
   color: #495057;
-  font-size: 20px;
 }
+
 #para {
   color: #b3b3b3;
   font-size: 20px;
@@ -74,12 +74,86 @@ select {
   font-size: 80px;
   font-weight: bolder;
 }
-button{
+button {
   width: 400px;
   height: 54px;
 }
-.error{
-  text-align: left;
-  margin: 0px 0px 40px 230px;
+.error {
   font-size: 20px;
 }
+
+@media screen and (max-width: 605px) {
+  form {
+    width: 100%;
+    position: absolute;
+    background-color: #29377c;
+    margin-left: -12px;
+  }
+
+  .text-center {
+    position: absolute;
+    width: 100%;
+  }
+  .text > h3 {
+    margin-top: 90px;
+  }
+  #image {
+    display: none;
+  }
+  input {
+    width: 300px;
+    height: 10px;
+  }
+  input,
+  input::placeholder {
+    font: 15px/3 sans-serif;
+  }
+  select {
+    width: 300px;
+    padding: 8px;
+  }
+  select > option {
+    width: 50px;
+  }
+  .inputGrid {
+    display: grid;
+  }
+  .inputGrid > div > input {
+    margin-top: 20px;
+    width: 300px;
+  }
+  .sticky-text {
+    display: none;
+  }
+  div > button {
+    width: 150px;
+    height: 40px;
+  }
+  .error {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  #image {
+    display: none;
+  }
+  .sticky-text {
+    display: none;
+  }
+  /* form{
+    width: 100%;
+    position: absolute;
+    background-color: #29377c;
+  }
+  .text-center {
+    position: absolute;
+    width: 100%;
+  } */
+}
+
+/* @media screen and (max-width: 606px) {
+  form{
+    margin-left: -45px;
+  }
+} */

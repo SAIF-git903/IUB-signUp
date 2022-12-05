@@ -28,6 +28,7 @@ function SignUpInterface(props) {
               <div className="inputGrid">
                 <div>
                   <input
+                    className="grid-input1"
                     required
                     name="firstName"
                     type="text"
@@ -38,6 +39,7 @@ function SignUpInterface(props) {
                 </div>
                 <div>
                   <input
+                    className="grid-input2"
                     required
                     name="lastName"
                     type="text"
@@ -59,14 +61,14 @@ function SignUpInterface(props) {
               </div>
               <div>
                 <select
-                  style={{ fontSize: "19px" }}
+                  style={{ fontSize: "20px" }}
                   onChange={onchange("gender")}
                   name="gender"
                   required
                 >
-                  <option value="">Select Gender</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
                 </select>
               </div>
               <div>
